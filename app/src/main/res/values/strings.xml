@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Assignment</string>
+    <string name="app_info">List of numbers. So wow so much fun!</string>
+    <string name="change_btn">Numberify!</string>
+</resources>
