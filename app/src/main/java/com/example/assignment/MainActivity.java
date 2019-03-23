@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.activity_main_frame, numbersFragment)
+                .addToBackStack(null)
                 .commit();
 
     }
