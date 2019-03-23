@@ -25,8 +25,9 @@ public class ListActivity extends AppCompatActivity {
     public int getNumbersSize() {
         return numbers.size();
     }
-    public List<ColoredNumber> getNumbers() {
-        return numbers;
+
+    public ListActivity() {
+        fillNumbers();
     }
 
     public void fillNumbers() {
@@ -56,10 +57,6 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-
-        fillNumbers();
-        incrementNumbers();
-        incrementNumbers();
 
         TextView v = findViewById(R.id.my_tv);
         for (int i = 0; i < numbers.size(); i++) {
