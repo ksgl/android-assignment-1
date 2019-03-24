@@ -59,7 +59,7 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersViewHolder> {
         myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Recycle Click: " + myViewHolder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "You clicked on: " + myViewHolder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
                 ColoredNumber value = cns_.get(myViewHolder.getAdapterPosition());
                 SingleNumberFragment numberFragment = new SingleNumberFragment();
                 Bundle bundle = new Bundle();
@@ -69,7 +69,7 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersViewHolder> {
 
                 ((MainActivity) context_).getSupportFragmentManager()
                             .beginTransaction()
-                            .add(R.id.activity_main_frame, numberFragment)
+                            .replace(R.id.activity_main_frame, numberFragment)
                             .addToBackStack(null)
                             .commit();
             }

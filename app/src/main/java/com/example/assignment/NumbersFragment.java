@@ -33,7 +33,6 @@ public class NumbersFragment extends Fragment {
 
         RecyclerView rvNumbers = view.findViewById(R.id.rvNumbers);
 
-
         final RecyclerView.LayoutManager layout = new GridLayoutManager(getContext(), 2);
         rvNumbers.setLayoutManager(layout);
         final NumbersAdapter numAdapter = new NumbersAdapter(cns, this.getContext());
@@ -48,7 +47,6 @@ public class NumbersFragment extends Fragment {
                 numAdapter.notifyItemChanged(cns.size() - 1);
             }
         });
-
 
         return view;
     }
