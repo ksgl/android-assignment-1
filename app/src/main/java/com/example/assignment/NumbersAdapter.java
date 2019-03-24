@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 import android.support.v4.app.Fragment;
@@ -37,10 +38,12 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersViewHolder> {
     }
 
     private ArrayList<ColoredNumber> cns_;
+    private Context context_;
 
 
-    public NumbersAdapter(ArrayList<ColoredNumber> cns) {
+    public NumbersAdapter(ArrayList<ColoredNumber> cns, Context context) {
         cns_ = cns;
+        this.context_ = context;
     }
 
     @NonNull
@@ -56,7 +59,7 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersViewHolder> {
         myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(view.getContext(), "Recycle Click: " + myViewHolder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Recycle Click: " + myViewHolder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
                 ColoredNumber value = cns_.get(myViewHolder.getAdapterPosition());
                 SingleNumberFragment numberFragment = new SingleNumberFragment();
                 Bundle bundle = new Bundle();
@@ -64,7 +67,7 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersViewHolder> {
                 bundle.putInt("color", value.color);
                 numberFragment.setArguments(bundle);
 
-                this.getSupportFragmentManager()
+                ((MainActivity) context_).getSupportFragmentManager()
                             .beginTransaction()
                             .add(R.id.activity_main_frame, numberFragment)
                             .addToBackStack(null)
