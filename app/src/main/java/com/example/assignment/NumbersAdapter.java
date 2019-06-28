@@ -57,7 +57,8 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersViewHolder> {
         myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "You clicked on: " + myViewHolder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                int pos = myViewHolder.getAdapterPosition() + 1;
+                Toast.makeText(view.getContext(), "You clicked on: " + pos, Toast.LENGTH_SHORT).show();
                 ColoredNumber value = cns_.get(myViewHolder.getAdapterPosition());
                 Bundle bundle = new Bundle();
                 bundle.putString("num", value.num.toString());
