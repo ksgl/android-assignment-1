@@ -21,11 +21,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Set;
 
 /**************************************************************************************************/
 /******************* всё, что связано с Fragment, содержащий список чисел *************************/
-
 /**************************************************************************************************/
 
 public class NumbersFragment extends Fragment {
