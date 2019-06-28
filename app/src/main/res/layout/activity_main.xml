@@ -12,13 +12,12 @@
         android:layout_height="match_parent">
 
 
-
         <fragment
             android:id="@+id/single_number"
             android:name="com.example.assignment.SingleNumberFragment"
-            android:layout_width="149dp"
+            android:layout_width="110dp"
             android:layout_height="327dp"
-            android:layout_gravity="right|top" />
+            android:layout_gravity="end|top" />
 
         <fragment
             android:id="@+id/numbers_fragment"
