@@ -12,10 +12,12 @@ import android.support.v4.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 
 /*****************************************************************************/
 /******************* всё, что связано с RecyclerView *************************/
+
 /*****************************************************************************/
 
 class NumbersViewHolder extends RecyclerView.ViewHolder {
@@ -30,20 +32,20 @@ class NumbersViewHolder extends RecyclerView.ViewHolder {
 
 public class NumbersAdapter extends RecyclerView.Adapter<NumbersViewHolder> {
 
-    static final public class ColoredNumber  {
+    static final public class ColoredNumber {
         public Integer num;
         public Integer color;
 
-        public ColoredNumber() {}
+        public ColoredNumber() {
+        }
     }
 
     private ArrayList<ColoredNumber> cns_;
-    private Context context_;
+    private NumbersFragment numFrag;
 
-
-    public NumbersAdapter(ArrayList<ColoredNumber> cns, Context context) {
+    public NumbersAdapter(ArrayList<ColoredNumber> cns, NumbersFragment numFrag) {
         cns_ = cns;
-        this.context_ = context;
+        this.numFrag = numFrag;
     }
 
     @NonNull
@@ -61,17 +63,10 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersViewHolder> {
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "You clicked on: " + myViewHolder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
                 ColoredNumber value = cns_.get(myViewHolder.getAdapterPosition());
-                SingleNumberFragment numberFragment = new SingleNumberFragment();
                 Bundle bundle = new Bundle();
                 bundle.putString("num", value.num.toString());
                 bundle.putInt("color", value.color);
-                numberFragment.setArguments(bundle);
-
-                ((MainActivity) context_).getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.activity_main_frame, numberFragment)
-                            .addToBackStack(null)
-                            .commit();
+                ((MainActivity) numFrag.getActivity()).ShowNum(bundle);
             }
         });
 

@@ -9,6 +9,22 @@
     <FrameLayout
         android:id="@+id/activity_main_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+
+
+        <fragment
+            android:id="@+id/single_number"
+            android:name="com.example.assignment.SingleNumberFragment"
+            android:layout_width="149dp"
+            android:layout_height="327dp"
+            android:layout_gravity="right|top" />
+
+        <fragment
+            android:id="@+id/numbers_fragment"
+            android:name="com.example.assignment.NumbersFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
 
 </LinearLayout>

@@ -35,7 +35,7 @@ public class NumbersFragment extends Fragment {
 
         final RecyclerView.LayoutManager layout = new GridLayoutManager(getContext(), 2);
         rvNumbers.setLayoutManager(layout);
-        final NumbersAdapter numAdapter = new NumbersAdapter(cns, this.getContext());
+        final NumbersAdapter numAdapter = new NumbersAdapter(cns, this);
         rvNumbers.setAdapter(numAdapter);
 
         Button incrementBtn = view.findViewById(R.id.btn);

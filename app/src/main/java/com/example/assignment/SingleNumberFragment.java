@@ -13,6 +13,9 @@ import android.widget.TextView;
 /**************************************************************************************************/
 
 public class SingleNumberFragment extends Fragment {
+
+    private TextView tv;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container,
@@ -20,15 +23,17 @@ public class SingleNumberFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_single_number,
                 container, false);
+        TextView tv = view.findViewById(R.id.single_number);
+        this.tv = tv;
 
-        Bundle bundle = this.getArguments();
+        return view;
+    }
+
+    public void showNum(Bundle bundle) {
+
         if (bundle != null) {
-            TextView tv = view.findViewById(R.id.single_number);
-
             tv.setText(bundle.getString("num"));
             tv.setTextColor(bundle.getInt("color"));
         }
-
-        return view;
     }
 }

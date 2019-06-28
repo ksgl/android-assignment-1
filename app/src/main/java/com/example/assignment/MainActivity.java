@@ -9,15 +9,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        NumbersFragment numbersFragment = new NumbersFragment();
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.activity_main_frame, numbersFragment)
-                .addToBackStack(null)
-                .commit();
-
+    public final void ShowNum(Bundle bundle) {
+        SingleNumberFragment singleNumFrag = (SingleNumberFragment) getSupportFragmentManager().findFragmentById(R.id.single_number);
+        singleNumFrag.showNum(bundle);
     }
 }
 
